@@ -9,7 +9,7 @@
     "migrate": "./node_modules/.bin/knex migrate:latest --knexfile examples/database/knexfile.js",
     "rollback": "./node_modules/.bin/knex migrate:rollback --knexfile examples/database/knexfile.js",
     "init": "npm run rollback; npm run migrate",
-    "test": "eslint *.js && nyc ./node_modules/.bin/mocha --opts mocha.opts test/test.js"
+    "test": "eslint *.js && nyc ./node_modules/.bin/mocha --opts mocha.opts tests/test.js"
   },
   "author": "",
   "license": "MIT",
