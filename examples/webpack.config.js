@@ -3,7 +3,12 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    app: path.join(__dirname, './client')
+    app: './client/index.jsx',
+    vendor: [
+      'react',
+      'react-dom',
+      'ws'
+    ]
   },
   devtool: 'eval-source-map',
   watch: false,
@@ -24,10 +29,19 @@ module.exports = {
         loaders: [
           'babel-loader'
         ]
+      },
+      {
+        include: /\.json$/,
+        loaders: ['json-loader']
       }
     ]
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks: Infinity
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: false,
       debug: true
