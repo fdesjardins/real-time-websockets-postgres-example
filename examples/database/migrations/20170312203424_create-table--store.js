@@ -3,6 +3,7 @@ exports.up = (knex, Promise) => {
     .createTableIfNotExists('store', t => {
       t.comment('App Backing Store')
       t.increments('store_id').primary()
+      t.text('name')
       t.jsonb('state')
       t.index('state', 'store_state_index', 'gin')
     })
@@ -10,5 +11,5 @@ exports.up = (knex, Promise) => {
 
 exports.down = (knex, Promise) => {
   return knex.schema.withSchema('public')
-    .dropTableIfExists('navaids')
+    .dropTableIfExists('store')
 }

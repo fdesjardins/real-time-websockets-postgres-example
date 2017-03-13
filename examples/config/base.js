@@ -15,4 +15,8 @@ config.database = {
   }
 }
 
+config.storeName = 'demo_store'
+
+config.channelName = 'demo_channel'
+
 module.exports = config
