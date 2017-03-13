@@ -1,7 +1,7 @@
 {
-  "name": "real-time-postgres-websockets-example",
+  "name": "real-time-websockets-postgres-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "Postgres LISTEN/NOTIFY + JSON types + WebSockets to build an Elm-like real-time data API",
   "main": "index.js",
   "engines" : {
     "node" : ">= 7.7.0"
