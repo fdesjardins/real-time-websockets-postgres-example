@@ -27,3 +27,7 @@
 1. protocol over ws? protobuf, stomp, json, ...
 1. web worker reducers
 1. clean it up
+
+## License
+
+MIT © [Forrest Desjardins](https://github.com/fdesjardins)
