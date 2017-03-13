@@ -1,4 +1,5 @@
-# real-time-websockets-postgres-example
+<<<<<<< HEAD
+# real-time-websockets-postgres-example [![Build Status][travis-image]][travis-url] [![Build Status][travis-image]][travis-url]
 
 > Postgres LISTEN/NOTIFY + JSON types + WebSockets to build an Elm-like real-time data API
 
@@ -31,3 +32,8 @@
 ## License
 
 MIT © [Forrest Desjardins](https://github.com/fdesjardins)
+
+[travis-url]: https://travis-ci.org/fdesjardins/real-time-postgres-websockets-example
+[travis-image]: https://img.shields.io/travis/fdesjardins/real-time-postgres-websockets-example.svg?style=flat
+[coveralls-url]: https://coveralls.io/r/fdesjardins/real-time-postgres-websockets-example
+[coveralls-image]: https://img.shields.io/coveralls/fdesjardins/real-time-postgres-websockets-example.svg?style=flat
