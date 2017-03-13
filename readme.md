@@ -1,8 +1,8 @@
 # real-time-websockets-postgres-example
 
-> Use Postgres events and JSON types to build an Elm-like real-time data API
+> Postgres LISTEN/NOTIFY + JSON types + WebSockets to build an Elm-like real-time data API
 
-## Built with rad tech
+## Built with
 
 - react
 - redux
@@ -19,13 +19,11 @@
 
 ## Next steps
 
-1. postgres
-2. use pg events
-3. make it use rxjs + redux
-4. redux-actions
-5. better examples
-6. fix dev server
-7. sort out repo
-8. protocol over ws? protobuf, stomp, json, ...
-9. web worker reducers
-10. clean it up
+1. make it use rxjs + redux on client
+1. redux-actions
+1. clean up postgres; add listen on each pool client?
+1. better examples
+1. fix dev server
+1. protocol over ws? protobuf, stomp, json, ...
+1. web worker reducers
+1. clean it up
