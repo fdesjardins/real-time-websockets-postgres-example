@@ -3,7 +3,11 @@ const Koa = require('koa')
 const koaRouter = require('koa-router')
 const WebSocket = require('ws')
 const koaCors = require('koa-cors')
+const knex = require('knex')
 
+const config = require('../config')
+
+const db = knex(config.database)
 const app = new Koa()
 // app.use(koaCors())
 

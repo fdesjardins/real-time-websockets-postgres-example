@@ -18,6 +18,9 @@
     "koa-router": "^5.4.0",
     "koa-static": "^3.0.0",
     "koa-websocket": "^3.0.1",
+    "lodash.merge": "^4.6.0",
+    "pg": "^6.1.4",
+    "ramda": "^0.23.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
@@ -39,7 +42,6 @@
     "eslint-plugin-standard": "^2.1.1",
     "koa-webpack": "^0.3.1",
     "mocha": "^3.2.0",
-    "ramda": "^0.23.0",
     "webpack": "^2.2.1"
   }
 }
