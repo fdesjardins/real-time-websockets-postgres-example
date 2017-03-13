@@ -5,9 +5,13 @@ module.exports = {
   entry: {
     app: './client/index.jsx',
     vendor: [
+      'rxjs',
       'react',
       'react-dom',
-      'ws'
+      'redux',
+      'redux-actions',
+      'react-redux',
+      'redux-observable'
     ]
   },
   devtool: 'eval-source-map',

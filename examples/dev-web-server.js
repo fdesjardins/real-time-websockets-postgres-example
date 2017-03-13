@@ -3,15 +3,17 @@ const Koa = require('koa')
 const koaWebpack = require('koa-webpack')
 const koaStatic = require('koa-static')
 const koaRouter = require('koa-router')
+const koaCompress = require('koa-compress')
 const webpackConfig = require('./webpack.config.js')
 const Webpack = require('webpack')
 const WebSocket = require('ws')
 
-const compiler = Webpack(webpackConfig)
+// const compiler = Webpack(webpackConfig)
 
 const app = new Koa()
+app.use(koaCompress())
 app.use(koaStatic(path.join(__dirname, './')))
-app.use(koaWebpack({ compiler }))
+// app.use(koaWebpack({ compiler }))
 
 const router = koaRouter()
 

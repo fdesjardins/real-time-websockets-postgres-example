@@ -1,15 +1,46 @@
-import WebSocket from 'ws'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const ws = new WebSocket('wss://localhost:8080', {
-  perMessageDeflate: false
-})
-
-console.log(ws)
+const store = {
+  latestMessage: null
+}
 
 const App = () => (
-  <div>Hello World</div>
+  <div>
+    <h1>Hello World</h1>
+    <h2>{ store.latestMessage }</h2>
+    <button id='next'>next</button>
+  </div>
 )
 
-ReactDOM.render(<App />, document.getElementById('app'))
+const renderApp = () => {
+  ReactDOM.render(<App />, document.getElementById('app'))
+}
+
+renderApp()
+
+const updateStore = data => {
+  console.log('updateStore', data)
+  Object.assign(store, JSON.parse(data))
+  console.log(store.latestMessage)
+  renderApp()
+}
+
+const ws = new WebSocket('ws://localhost:3002')
+
+ws.onopen = () => {
+  console.log('socket open')
+  ws.send(JSON.stringify({ event: 'hello from client' }))
+}
+
+ws.onmessage = ev => {
+  console.log('here')
+  updateStore(ev.data)
+}
+
+document.getElementById('next').addEventListener('click', () => {
+  console.log('onclick')
+  ws.send(JSON.stringify({
+    event: 'next'
+  }))
+})
