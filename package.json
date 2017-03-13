@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "./node_modules/.bin/knex migrate:latest --knexfile examples/database/knexfile.js",
     "rollback": "./node_modules/.bin/knex migrate:rollback --knexfile examples/database/knexfile.js",
-    "init": "npm run rollback; npm run migrate"
+    "init": "npm run rollback; npm run migrate",
+    "test": "eslint *.js && nyc ./node_modules/.bin/mocha --opts mocha.opts test/test.js"
   },
   "author": "",
   "license": "MIT",
@@ -39,12 +40,14 @@
     "babel-preset-env": "^1.2.1",
     "babel-preset-react": "^6.23.0",
     "chai": "^3.5.0",
+    "coveralls": "^2.12.0",
     "eslint": "^3.17.1",
     "eslint-config-standard": "^7.0.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
     "koa-webpack": "^0.3.1",
     "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
     "webpack": "^2.2.1"
   },
   "keywords": [
@@ -58,5 +61,11 @@
     "webpack",
     "babel",
     "boilerplate"
-  ]
+  ],
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
 }
