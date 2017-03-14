@@ -28,6 +28,10 @@
 1. web worker reducers
 1. clean it up
 
+## Future Work
+
+- https://www.youtube.com/watch?v=aZJnI6hxr-c
+
 ## License
 
 MIT © [Forrest Desjardins](https://github.com/fdesjardins)
