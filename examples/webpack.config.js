@@ -1,9 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlReloadPlugin = require('reload-html-webpack-plugin')
 
 module.exports = {
+  context: path.join(__dirname, '.'),
   entry: {
-    app: './client/index.jsx',
+    bundle: './client/index.jsx',
     vendor: [
       'rxjs',
       'react',
@@ -14,12 +17,11 @@ module.exports = {
       'redux-observable'
     ]
   },
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-source-map',
   watch: false,
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   resolve: {
     modules: ['../node_modules'],
@@ -28,9 +30,18 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.scss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loaders: [
+          'react-hot-loader',
           'babel-loader'
         ]
       },
@@ -43,12 +54,21 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'vendor.bundle.js',
-      minChunks: Infinity
+      filename: 'vendor.bundle.js'
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, '/client/index.html'),
+      inject: false
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: false,
       debug: true
-    })
-  ]
+    }),
+    new HtmlReloadPlugin(),
+    new webpack.NamedModulesPlugin()
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, 'client'),
+    hot: true
+  }
 }

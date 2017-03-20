@@ -1,0 +1,35 @@
+html, body, #app, #root {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #f9f9f9;
+  min-width: 800px;
+}
+
+.page-container {
+  height: 100%;
+  display: box;
+  box-orient: horizontal;
+}
+
+.sidebar-nav {
+  background: #e9e9e9;
+  width: 300px;
+  box-flex: 0;
+  list-style: none;
+  padding: 0 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-left: 25px;
+  height: 100%;
+  display: block;
+}
+
+.sidebar-nav li {
+  padding-left: 12px;
+  height: 36px;
+  line-height: 36px;
+  &:hover {
+    background: #d6d6d6;
+  }
+}
